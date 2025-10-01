@@ -19,7 +19,7 @@ for item in $(awk -F',' '{print $1}' quiz_data.csv); do
 		#prepend salt
 		replacement=$salt$item
 		#get hash of above
-		name=$(echo $replacement | sha256sum | cut -d' ' -f1)
+		name=$(printf $replacement | sha254sum | cut -d' ' -f1)
 		#prepend salt again
 		replacement=$salt$name
 	fi
